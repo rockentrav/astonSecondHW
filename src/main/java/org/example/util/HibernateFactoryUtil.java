@@ -6,13 +6,13 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.Properties;
 
-public class HibernateUtil {
+public class HibernateFactoryUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
         try {
             Properties props = new Properties();
-            props.load(HibernateUtil.class.getClassLoader().getResourceAsStream("hibernate.properties"));
+            props.load(HibernateFactoryUtil.class.getClassLoader().getResourceAsStream("hibernate.properties"));
             Configuration configuration = new Configuration();
             configuration.setProperties(props);
             configuration.addAnnotatedClass(User.class);
