@@ -5,7 +5,7 @@ import org.example.model.User;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserDAO {
     void create(User user);
     User getById(int id);
     List<User> getAll();

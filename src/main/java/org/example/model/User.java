@@ -19,6 +19,9 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    public int getId() {
+        return id;
+    }
     public User() {
         this.createdAt = LocalDateTime.now();
     }
