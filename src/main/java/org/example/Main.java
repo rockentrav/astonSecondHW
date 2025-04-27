@@ -30,7 +30,7 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     String name = readString(scanner, "Имя: ");
-                    String email = readString(scanner, "Email: ");
+                    String email = readEmail(scanner, "Email: ");
                     int age = readInt(scanner, "Возраст: ");
 
                     User user = new User();
@@ -121,5 +121,19 @@ public class Main {
     private static String readString(Scanner scanner, String prompt) {
         System.out.print(prompt);
         return scanner.nextLine().trim();
+    }
+
+    // Метод для проверки email с помощью регулярного выражения
+    private static String readEmail(Scanner scanner, String prompt) {
+        String emailRegex = "^[a-zA-Z\\d._%+-]+@[a-zA-Z]+\\.[a-zA-Z]{2,3}$"; // Регулярное выражение для email
+        while (true) {
+            System.out.print(prompt);
+            String email = scanner.nextLine().trim();
+            if (email.matches(emailRegex)) {
+                return email;
+            } else {
+                System.out.println("Некорректный email. Попробуйте снова.");
+            }
+        }
     }
 }
