@@ -1,10 +1,11 @@
 package org.example;
 
-import org.example.dao.UserDAO;
+
 import org.example.dao.UserDAOImpl;
 import org.example.model.User;
 import org.example.service.UserService;
 import org.example.service.UserServiceImpl;
+import org.example.util.HibernateFactoryUtil;
 
 import java.util.Comparator;
 import java.util.InputMismatchException;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        UserService userService = new UserServiceImpl(new UserDAOImpl());
+        UserService userService = new UserServiceImpl(new UserDAOImpl(HibernateFactoryUtil.getSessionFactory()));
         Scanner scanner = new Scanner(System.in);
         //testSergeyR
         while (true) {
